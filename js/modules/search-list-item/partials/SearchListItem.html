@@ -1,8 +1,8 @@
 <div class="people-item list-group-item">
-	<img ng-src="https://graph.facebook.com/v2.0/{{vm.profile.id}}/picture?redirect=true" class="profile-image"/>
+	<img ng-src="https://graph.facebook.com/v2.0/{{profile.id}}/picture?redirect=true" class="profile-image"/>
 	<div class="profile-name">
 		<div class="table">
-			<div class="table-cell middle-aligned">{{vm.profile.name}}</div>
+			<div class="table-cell middle-aligned">{{profile.name}}{{profile.id}}</div>
 		</div>
 	</div>
 	<div class="choose top-aligned">

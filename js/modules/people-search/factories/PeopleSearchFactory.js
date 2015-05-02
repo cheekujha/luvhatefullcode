@@ -24,6 +24,7 @@
 	      	setPeopleList(response.data, true);
 	      	setPaginationValues(response.data, response.paging);
       	}
+       // console.log('............................',peopleList.length);
       	defer.resolve(peopleList);
       }, function(response){
       	defer.reject();
@@ -34,6 +35,7 @@
     function setPeopleList(list, emptyList){
     	if(emptyList){
     		peopleList = [];
+        peopleList.length = 0;
     	}
     	if(list && list.length > 0){
     		peopleList = peopleList.concat(list);
@@ -56,6 +58,8 @@
 		      	setPeopleList(response.data, false);
 		      	setPaginationValues(response.data, response.paging);
 	      	}
+          //console.log('............................',response.data.length);
+          //console.log('............................',peopleList.length);
 	      	defer.resolve(response.data);
 	      }, function(response){
 	      	defer.reject(response);

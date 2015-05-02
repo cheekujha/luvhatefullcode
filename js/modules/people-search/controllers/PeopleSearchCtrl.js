@@ -38,6 +38,7 @@
 			}
 			if(emptyList){
 				vm.peopleList = [];
+				vm.peopleList.length = 0;
 			}
 			var oldList = vm.peopleList;
 			var newList = oldList.concat(list);
