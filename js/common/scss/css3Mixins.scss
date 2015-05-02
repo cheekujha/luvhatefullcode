@@ -1,0 +1,86 @@
+@mixin transform($value) {
+  -webkit-transform: #{$value};
+     -moz-transform: #{$value};
+      -ms-tranfsorm: #{$value};
+       -o-transform: #{$value};
+          transform: #{$value};
+}
+
+@mixin transition-vendor-prefix($prop,$time:1s,$mode:linear) {
+  -webkit-transition: -webkit-#{$prop} $time $mode;
+     -moz-transition: -moz-#{$prop} $time $mode;
+      -ms-transition: -ms-#{$prop} $time $mode;
+       -o-transition: -o-#{$prop} $time $mode;
+          transition: #{$prop} $time $mode;
+}
+
+@mixin transition($value) {
+  -webkit-transition: #{$value};
+     -moz-transition: #{$value};
+      -ms-transition: #{$value};
+       -o-transition: #{$value};
+          transition: #{$value};
+}
+
+@mixin transform-origin($value) {
+  -webkit-transform-origin: #{$value};
+     -moz-transform-origin: #{$value};
+      -ms-transform-origin: #{$value};
+       -o-transform-origin: #{$value};
+          transform-origin: #{$value};
+}
+
+@mixin background-image($from,$to){
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image: -moz-linear-gradient(top, $from, $to);
+  background-image: -ms-linear-gradient(top, $from, $to);
+  background-image: -o-linear-gradient(top, $from, $to);
+  background-image: linear-gradient(to bottom, $to, $from);
+}
+
+@mixin box-shadow($value1, $value2:0 0 0 0 grey){
+  -webkit-box-shadow: #{$value1, $value2};
+  -moz-box-shadow   : #{$value1, $value2};
+  -ms-box-shadow    : #{$value1, $value2};
+  -o-box-shadow     : #{$value1, $value2};
+  box-shadow        : #{$value1, $value2};
+}
+
+@mixin background-size($value){
+  -webkit-background-size: #{$value};
+  -moz-background-size   : #{$value};
+  -ms-background-size    : #{$value};
+  -o-background-size     : #{$value};
+  background-size       : #{$value};
+}
+
+@mixin user-select($value){
+  -webkit-user-select: #{$value};
+  -moz-user-select: #{$value};
+  -ms-user-select: #{$value};
+  -o-user-select: #{$value};
+  user-select: #{$value};
+}
+
+@mixin animation($value){
+  -webkit-animation: $value;
+  -moz-animation : $value;
+  -ms-animation : $value;
+  -o-animation : $value;
+  animation: $value
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name}  {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}

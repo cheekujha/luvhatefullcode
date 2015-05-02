@@ -1,0 +1,44 @@
+<ui-state id="activeTab" default="1"></ui-state>
+
+<div class="" ui-if="activeTab == 2">
+	<div class="people-list list-group scrollable" ng-show="vm.friendList.length > 0">
+		<div class="scrollable-content">
+			<div class="section-header">Friends</div>
+			<search-list-item profile="friend" ng-repeat="friend in vm.friendList track by $index"></search-list-item>
+			<!-- <div class="people-item list-group-item" ng-repeat="friend in vm.friendList track by $index">
+				<img ng-src="https://graph.facebook.com/v2.0/{{friend.id}}/picture?redirect=true" class="profile-image"/>
+				{{friend.name}}
+			</div> -->
+			<div class="btn load-more-button" ng-click="vm.loadMoreFriendClicked()" ng-show="vm.showFriendLoadMoreButton">Load More...</div>
+		</div>
+	</div>
+	<div class="no-friend-banner table" ng-show="vm.friendList.length == 0 && vm.friendListLoaded">
+		<div class="table-cell middle-aligned text-center border-box padding-5">No Friends Registered</div>
+	</div>
+</div>
+
+<div class="router-view" ui-if="activeTab == 1">
+	<div class="input-group psoition-relative">
+	  <input type="text" class="form-control search-input" placeholder="Search people..." ng-model="vm.searchText">
+	  <span class="input-group-btn">
+	    <button class="btn btn-success search-button" type="button" ng-click="vm.searhclicked(vm.searchText)">Go!</button>
+	  </span>
+	</div>
+	<div class="people-list list-group scrollable" ng-show="vm.peopleList.length > 0">
+
+		<div class="scrollable-content">
+			<div class="section-header">Results</div>
+			<search-list-item profile="people" ng-repeat="people in vm.peopleList track by $index"></search-list-item>
+			<!-- <div class="people-item list-group-item" ng-repeat="people in vm.peopleList track by $index">
+				<img ng-src="https://graph.facebook.com/v2.0/{{people.id}}/picture?redirect=true" class="profile-image"/>
+				{{people.name}}
+			</div> -->
+			<div class="btn load-more-button" ng-click="vm.loadMoreClicked()" ng-show="vm.showLoadMoreButton">Load More...</div>
+		</div>
+	</div>
+</div>
+<div class="btn-group justified nav-tabs">
+  <a ui-set="{'activeTab': 1}" ui-class="{'active': activeTab == 1}" class="btn btn-default  active">Search</a>
+
+  <a ui-set="{'activeTab': 2}" ui-class="{'active': activeTab == 2}" class="btn btn-default" ng-click="vm.getFriendList()">Friends</a>
+</div>
